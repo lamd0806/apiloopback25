@@ -1,6 +1,8 @@
 import {Credenciales} from '../models';
 import { HttpErrors} from '@loopback/rest';
 import {service} from '@loopback/core';
+import {authenticate, AuthenticationComponent, registerAuthenticationStrategy} from '@loopback/authentication';
+
 import {
   Count,
   CountSchema,
@@ -25,6 +27,7 @@ import {Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 import {AuthService} from '../services';
 
+@authenticate("admin")
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -34,6 +37,7 @@ export class UsuarioController {
 
   ) {}
 
+  @authenticate.skip()
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -191,6 +195,7 @@ export class UsuarioController {
   }
 
   //Servicio de login
+  @authenticate.skip()
   @post('/login', {
     responses: {
       '200': {

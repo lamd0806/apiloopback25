@@ -1,3 +1,5 @@
+import {AuthenticationComponent, registerAuthenticationStrategy} from '@loopback/authentication';
+import {AdministradorStrategy} from './strategies/admin.strategy';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {
@@ -40,5 +42,10 @@ export class Apiloopback25Application extends BootMixin(
         nested: true,
       },
     };
+
+    //Registramos la estrategia
+  registerAuthenticationStrategy(this, AdministradorStrategy);
+  this.component(AuthenticationComponent);
+
   }
 }
