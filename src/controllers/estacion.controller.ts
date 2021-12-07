@@ -28,6 +28,7 @@ export class EstacionController {
     public estacionRepository : EstacionRepository,
   ) {}
 
+  @authenticate.skip()
   @post('/estaciones')
   @response(200, {
     description: 'Estacion model instance',
