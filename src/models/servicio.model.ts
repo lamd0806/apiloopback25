@@ -11,10 +11,10 @@ export class Servicio extends Entity {
   id?: string;
 
   @property({
-    type: 'date',
+    type: 'Date',
     required: true,
   })
-  fecha: string;
+  fecha: Date;
 
   @property({
     type: 'string',
@@ -41,10 +41,10 @@ export class Servicio extends Entity {
   nombre_conductor: string;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  dinero_recogido: string;
+  dinero: number;
 
   @belongsTo(() => Ruta, {name: 'rutaFk'})
   ruta: string;

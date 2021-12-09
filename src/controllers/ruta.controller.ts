@@ -28,6 +28,7 @@ export class RutaController {
     public rutaRepository : RutaRepository,
   ) {}
 
+  @authenticate.skip()
   @post('/rutas')
   @response(200, {
     description: 'Ruta model instance',

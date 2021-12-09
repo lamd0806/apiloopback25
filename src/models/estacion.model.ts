@@ -22,16 +22,16 @@ export class Estacion extends Entity {
   direccion: string;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  cooredenada_x: string;
+  coordenada_x: number;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  coordenada_y: string;
+  coordenada_y: number;
 
   @property({
     type: 'string',
